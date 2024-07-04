@@ -1,0 +1,28 @@
+[package]
+name = "imrevolt"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+imgui = { git = "https://github.com/imgui-rs/imgui-rs.git", features = ["tables-api", "docking"]}
+imgui-winit-support = { git = "https://github.com/imgui-rs/imgui-rs.git" }
+copypasta = "0.8"
+imgui-winit-glow-renderer-viewports = { git = "https://github.com/imgui-rs/imgui-rs.git" }
+glutin-winit = "0.4.0"
+glow = "0.13"
+glutin = "0.31"
+winit = "0.29"
+raw-window-handle = "0.5.0"
+revolt-models = "*"
+revolt-database = { version = "*", features = [] }
+tokio = { version = "1.38.0", features = ["rt"] }
+tokio-tungstenite = { version = "0.23", features = ["native-tls"] }
+tungstenite = { version = "0.23", features = ["native-tls"] }
+reqwest = { version = "0.12", features = ["json"] }
+serde = "1.0"
+futures = "0.3"
+serde_json = "1.0"
+ulid = "1.1"
+eos = { git = "https://github.com/Rapptz/eos.git", rev = "0c6bb1abfe2d5ead601a67eb19014ca6e9d7da78" }
