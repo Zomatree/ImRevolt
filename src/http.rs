@@ -78,6 +78,6 @@ impl HttpClient {
     }
 
     pub async fn send_message(&self, channel: &str, body: &DataMessageSend) -> Result<Message, reqwest::Error> {
-        self.request(Method::POST, format!("/{channel}/messages"), Some(body)).await
+        self.request(Method::POST, format!("/channels/{channel}/messages"), Some(body)).await
     }
 }

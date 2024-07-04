@@ -11,10 +11,14 @@ pub fn message_box(ui: &Ui, state: &mut GlobalState) {
     let context = state.new_context("MessageBox");
     let current_message = context.use_hook(String::new);
 
-    ui.input_text("##textinput", current_message).hint("Message Channel").build();
+    let should_send = ui.input_text("##textinput", current_message)
+        .hint("Message Channel")
+        .enter_returns_true(true)
+        .build();
+
     ui.same_line();
 
-    if ui.button("Send") && !current_message.is_empty() {
+    if (ui.button("Send") || should_send) && !current_message.is_empty() {
         if let Some(channel_id) = selected_channel {
             tokio::spawn({
                 let current_message = current_message.clone();
